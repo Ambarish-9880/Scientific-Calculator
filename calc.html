@@ -1,53 +1,71 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Scientific Calculator</title>
-  <link rel="stylesheet" href="calc.css">
+  <meta charset="UTF-8">
+  <title>Personalized Calculator</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+  <!-- Your CSS -->
+  <link rel="stylesheet" href="calclogin.css">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="calculator">
-  <input type="text" id="display">
+<!-- 🔐 LOGIN SECTION -->
+<div class="login-form" id="loginBox">
+  <div class="text">LOGIN</div>
+
+  <form onsubmit="loginUser(event)">
+    <div class="field">
+      <div class="fas fa-user"></div>
+      <input type="text" id="username" placeholder="Enter your name" required>
+    </div>
+
+    <button type="submit">LOGIN</button>
+
+    <div class="link">
+      No backend • Local login only
+    </div>
+  </form>
+</div>
+
+<!-- 🧮 CALCULATOR SECTION -->
+<div class="calculator" id="calcBox" style="display:none;">
+  <h3 id="welcomeText"></h3>
+
+  <input type="text" id="display" readonly>
 
   <div class="buttons">
     <button onclick="clearDisplay()">C</button>
     <button onclick="append('%')">%</button>
-    <button onclick="append('**')">xʸ</button>
+    <button onclick="append('/')">÷</button>
     <button onclick="deleteChar()">⌫</button>
 
     <button onclick="append('7')">7</button>
     <button onclick="append('8')">8</button>
     <button onclick="append('9')">9</button>
-    <button onclick="append('/')">÷</button>
+    <button onclick="append('*')">×</button>
 
     <button onclick="append('4')">4</button>
     <button onclick="append('5')">5</button>
     <button onclick="append('6')">6</button>
-    <button onclick="append('*')">×</button>
+    <button onclick="append('-')">−</button>
 
     <button onclick="append('1')">1</button>
     <button onclick="append('2')">2</button>
     <button onclick="append('3')">3</button>
-    <button onclick="append('-')">−</button>
+    <button onclick="append('+')">+</button>
 
     <button onclick="append('0')">0</button>
     <button onclick="append('.')">.</button>
     <button onclick="calculate()">=</button>
-    <button onclick="append('+')">+</button>
-
-    <button onclick="sin()">sin</button>
-    <button onclick="cos()">cos</button>
-    <button onclick="tan()">tan</button>
-    <button onclick="log()">log</button>
-
-    <button onclick="ln()">ln</button>
-    <button onclick="sqrt()">√</button>
-    <button onclick="table()">Table</button>
+    <button onclick="logout()">Logout</button>
   </div>
 </div>
 
-<script src="calc.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
